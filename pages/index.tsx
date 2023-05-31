@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useTheme } from "@mui/material/styles";
 import { Grid } from "@mui/material";
 import Image from "next/image";
+import mockProducts from "../src/mockdata";
 
 import TitleImage from "public/images/rebecca-peterson-hall-aN-zGYlxiCI-unsplash.jpg";
 import FeatureImage from "public/images/hanna-balan-zQwuQ59-xnI-unsplash.jpg";
@@ -23,6 +24,7 @@ export default function Home() {
           backgroundColor: theme.palette.primary.main,
           position: "relative",
           overflow: "hidden",
+          boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
         }}
       >
         <Image
@@ -70,65 +72,32 @@ export default function Home() {
       </Container>
 
       <Grid container spacing={[5, 20]}>
-        <Grid item xs={12} sm={4}>
-          <Box sx={{ textAlign: "center" }}>Vela de Lavanda</Box>
-
-          <Box
-            sx={{
-              width: "100%",
-              paddingBottom: "100%",
-              backgroundColor: theme.palette.primary.main,
-              position: "relative",
-            }}
-          >
-            {" "}
-            <Image
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              alt="feature image"
-              src={FeatureImage}
-            />
-          </Box>
-          <Box sx={{ textAlign: "center" }}>Vela de Lavanda</Box>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Box
-            sx={{
-              width: "100%",
-              paddingBottom: "100%",
-              backgroundColor: theme.palette.primary.main,
-              position: "relative",
-            }}
-          >
-            <Image
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              src={FeatureImage}
-              alt="feature image"
-            />
-          </Box>
-          <Box sx={{ textAlign: "center" }}>Vela de Laranja</Box>
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <Box
-            sx={{
-              width: "100%",
-              paddingBottom: "100%",
-              position: "relative",
-            }}
-          >
-            <Image
-              layout="fill"
-              objectFit="cover"
-              objectPosition="center"
-              src={FeatureImage}
-              alt="feature image"
-            />
-          </Box>
-          <Box sx={{ textAlign: "center" }}>Vela de Baunilha</Box>
-        </Grid>
+        {mockProducts.map((product) => (
+          <Grid item key={product.id} xs={12} sm={4}>
+            <Box
+              sx={{
+                width: "100%",
+                paddingBottom: "100%",
+                backgroundColor: theme.palette.primary.main,
+                position: "relative",
+                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+              }}
+            >
+              <Image
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                alt="feature image"
+                src={product.image}
+              />
+            </Box>
+            <Box sx={{ textAlign: "center" }}>
+              <Typography variant="h5">{product.title}</Typography>
+              <Typography variant="h6">{product.price}</Typography>
+              <Typography>{product.description}</Typography>
+            </Box>
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );

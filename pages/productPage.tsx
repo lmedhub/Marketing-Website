@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Otherpage() {
+export default function ProductPage() {
   return <div>otherpage</div>;
 }
