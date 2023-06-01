@@ -9,7 +9,7 @@ export default function Layout({ children }: any) {
 
   return (
     <>
-      <Box sx={{ px: { xs: "auto", md: 3 } }}>
+      <Box sx={{ px: { xs: 1, md: 3 } }}>
         <NavBar />
         {children}
         {isntContactPage && <Footer />}

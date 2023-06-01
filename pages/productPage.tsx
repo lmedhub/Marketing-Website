@@ -1,5 +1,8 @@
 import { useRouter } from "next/router"
-import { Box, Container } from "@mui/material"
+import { Box, Container, Card, Grid } from "@mui/material"
+import Image from "next/image"
+
+import ProductImage from "/public/images/hanna-balan-zQwuQ59-xnI-unsplash.jpg"
 
 type ProductDetails = {
   id: number
@@ -18,9 +21,43 @@ export default function ProductPage({ data }: ProductPageProps) {
 
   return (
     <Container>
-      <Box sx={{ textAlign: "center" }}>
-        {product ? product.details : "Produto não encontrado"}
-      </Box>
+      <Card sx={{ mt: 2 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <Box
+              sx={{
+                width: "100%",
+                position: "relative",
+                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                paddingBottom: "100%",
+              }}
+            >
+              <Image
+                src={ProductImage}
+                alt="product-image"
+                fill
+                objectFit="cover"
+                objectPosition="center"
+              />
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+                textAlign: "center",
+                margin: 4,
+              }}
+            >
+              {product ? product.details : "Produto não encontrado"}
+            </Box>
+          </Grid>
+        </Grid>
+      </Card>
     </Container>
   )
 }

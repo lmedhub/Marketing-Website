@@ -13,7 +13,6 @@ export default function Footer() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "#f5f5f5",
       }}
     >
       <Box
