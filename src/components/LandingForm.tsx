@@ -23,7 +23,7 @@ const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="my-form">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <TextField
@@ -32,6 +32,7 @@ const ContactForm = () => {
             {...register("name")}
             error={!!errors.name}
             sx={{ width: { md: "50%", xs: "100%" } }}
+            helperText={errors.name && String(errors.name?.message)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -41,6 +42,7 @@ const ContactForm = () => {
             {...register("phone")}
             error={!!errors.phone}
             sx={{ width: { md: "50%", xs: "100%" } }}
+            helperText={errors.phone && String(errors.phone?.message)}
           />
         </Grid>
 
@@ -51,6 +53,7 @@ const ContactForm = () => {
             {...register("email")}
             error={!!errors.email}
             sx={{ width: { md: "50%", xs: "100%" } }}
+            helperText={errors.email && String(errors.email?.message)}
           />
         </Grid>
         <Grid item xs={12}>

@@ -38,6 +38,7 @@ function ContactForm() {
             variant="outlined"
             {...register("name")}
             error={!!errors.name}
+            helperText={errors.name && String(errors.name?.message)}
             fullWidth
           />
         </Grid>
@@ -47,6 +48,7 @@ function ContactForm() {
             variant="outlined"
             {...register("phone")}
             error={!!errors.phone}
+            helperText={errors.phone && String(errors.phone?.message)}
             fullWidth
           />
         </Grid>
@@ -57,6 +59,7 @@ function ContactForm() {
             variant="outlined"
             {...register("msg")}
             error={!!errors.msg}
+            helperText={errors.msg && String(errors.msg?.message)}
             fullWidth
             multiline
             rows={5}

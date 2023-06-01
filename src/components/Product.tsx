@@ -29,7 +29,9 @@ export default function Product(props: MainPageProductProps) {
               />
             </Link>
           </Box>
-          <Box sx={{ textAlign: "center" }}>
+          <Box
+            sx={{ textAlign: "center", borderBottom: "1px solid lightgray" }}
+          >
             <Typography variant="h5">{product.title}</Typography>
             <Typography variant="h6">{product.price}</Typography>
             <Typography>{product.description}</Typography>
