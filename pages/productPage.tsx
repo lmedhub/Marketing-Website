@@ -16,12 +16,10 @@ export default function ProductPage({ data }: ProductPageProps) {
 
   const product = data.find((item) => item.id === Number(id))
 
-  console.log(data)
-
   return (
     <Container>
       <Box sx={{ textAlign: "center" }}>
-        {product ? product.details : "Product not Found"}
+        {product ? product.details : "Produto não encontrado"}
       </Box>
     </Container>
   )

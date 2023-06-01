@@ -82,7 +82,7 @@ function ContactForm() {
 export default function LandingForm() {
   return (
     <Container sx={{ textAlign: "center" }}>
-      <Typography variant="h2">Contact Form</Typography>
+      <Typography variant="h2">Entre em contato</Typography>
       <ContactForm />
     </Container>
   )
