@@ -31,7 +31,6 @@ const ContactForm = () => {
             variant="outlined"
             {...register("name")}
             error={!!errors.name}
-            helperText={errors.name?.message}
             sx={{ width: { md: "50%", xs: "100%" } }}
           />
         </Grid>
@@ -41,7 +40,6 @@ const ContactForm = () => {
             variant="outlined"
             {...register("phone")}
             error={!!errors.phone}
-            helperText={errors.phone?.message}
             sx={{ width: { md: "50%", xs: "100%" } }}
           />
         </Grid>
@@ -52,7 +50,6 @@ const ContactForm = () => {
             variant="outlined"
             {...register("email")}
             error={!!errors.email}
-            helperText={errors.email?.message}
             sx={{ width: { md: "50%", xs: "100%" } }}
           />
         </Grid>

@@ -39,7 +39,6 @@ function ContactForm() {
             {...register("name")}
             error={!!errors.name}
             fullWidth
-            helperText={errors.name ? errors.name.message : null}
           />
         </Grid>
         <Grid item xs={12}>
@@ -49,7 +48,6 @@ function ContactForm() {
             {...register("phone")}
             error={!!errors.phone}
             fullWidth
-            helperText={errors.phone?.message}
           />
         </Grid>
 
@@ -60,7 +58,6 @@ function ContactForm() {
             {...register("msg")}
             error={!!errors.msg}
             fullWidth
-            helperText={errors.msg?.message}
             multiline
             rows={5}
           />
