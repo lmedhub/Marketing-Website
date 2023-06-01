@@ -31,6 +31,7 @@ const ContactForm = () => {
             variant="outlined"
             {...register("name")}
             error={!!errors.name}
+            // @ts-expect-error
             helperText={errors.name ? errors.name.message : null}
             sx={{ width: { md: "50%", xs: "100%" } }}
           />
@@ -41,6 +42,7 @@ const ContactForm = () => {
             variant="outlined"
             {...register("phone")}
             error={!!errors.phone}
+            // @ts-expect-error
             helperText={errors.phone?.message}
             sx={{ width: { md: "50%", xs: "100%" } }}
           />
@@ -52,6 +54,7 @@ const ContactForm = () => {
             variant="outlined"
             {...register("email")}
             error={!!errors.email}
+            // @ts-expect-error
             helperText={errors.email?.message}
             sx={{ width: { md: "50%", xs: "100%" } }}
           />
