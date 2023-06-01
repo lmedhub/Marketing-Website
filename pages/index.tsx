@@ -1,19 +1,30 @@
-import Typography from "@mui/material/Typography";
-import { Box, Container, Button } from "@mui/material";
-import Head from "next/head";
-import { useTheme } from "@mui/material/styles";
-import { Grid } from "@mui/material";
-import Image from "next/image";
-import mockProducts from "../src/mockdata";
+import { Box, Container, Button } from "@mui/material"
+import Head from "next/head"
+import { useTheme } from "@mui/material/styles"
+import { Grid } from "@mui/material"
+import Image from "next/image"
+import LandingForm from "../src/components/LandingForm"
 
-import TitleImage from "public/images/rebecca-peterson-hall-aN-zGYlxiCI-unsplash.jpg";
-import FeatureImage from "public/images/hanna-balan-zQwuQ59-xnI-unsplash.jpg";
+import Product from "../src/components/Product"
+import TitleImage from "public/images/rebecca-peterson-hall-aN-zGYlxiCI-unsplash.jpg"
 
-export default function Home() {
-  const theme = useTheme();
+type Products = {
+  id: number
+  title: string
+  price: string
+  description: string
+  image: string
+}
+
+type MainPageProductProps = {
+  data: Products[]
+}
+
+export default function Home({ data }: MainPageProductProps) {
+  const theme = useTheme()
 
   return (
-    <Box sx={{ p: 4 }}>
+    <Box>
       <Head>
         <title>Aroma&Vela</title>
       </Head>
@@ -21,7 +32,6 @@ export default function Home() {
       <Box
         sx={{
           height: "40vh",
-          backgroundColor: theme.palette.primary.main,
           position: "relative",
           overflow: "hidden",
           boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
@@ -59,46 +69,31 @@ export default function Home() {
         </Box>
       </Box>
 
-      <Container sx={{ py: 8 }}>
-        <Typography sx={{ textAlign: "center" }}>
-          Welcome to Aroma&Vela, a haven of scented candles. Immerse yourself in
-          a symphony of captivating fragrances that ignite your imagination and
-          soothe your soul. Handcrafted with love, our candles transport you to
-          faraway places, evoking cherished memories. From lavender fields to
-          vanilla dreams, find the perfect scent for any occasion. Let our
-          knowledgeable staff guide you through this olfactory wonderland.
-          Illuminate your world with the transformative power of Aroma&Vela.
-        </Typography>
+      <Container
+        sx={{
+          py: 8,
+          textAlign: "center",
+        }}
+      >
+        <LandingForm />
       </Container>
-
-      <Grid container spacing={[5, 20]}>
-        {mockProducts.map((product) => (
-          <Grid item key={product.id} xs={12} sm={4}>
-            <Box
-              sx={{
-                width: "100%",
-                paddingBottom: "100%",
-                backgroundColor: theme.palette.primary.main,
-                position: "relative",
-                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-              }}
-            >
-              <Image
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
-                alt="feature image"
-                src={product.image}
-              />
-            </Box>
-            <Box sx={{ textAlign: "center" }}>
-              <Typography variant="h5">{product.title}</Typography>
-              <Typography variant="h6">{product.price}</Typography>
-              <Typography>{product.description}</Typography>
-            </Box>
-          </Grid>
-        ))}
+      <Grid container spacing={[5, 15]}>
+        <Product data={data} />
       </Grid>
     </Box>
-  );
+  )
+}
+
+export async function getStaticProps() {
+  const response = await fetch(
+    "https://6477d248362560649a2cfd87.mockapi.io/vela/v1/products"
+  )
+  const data = await response.json()
+
+  // Return the data as props
+  return {
+    props: {
+      data,
+    },
+  }
 }

@@ -1,13 +1,19 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material"
+import Footer from "./Footer"
+import NavBar from "./NavBar"
+import { useRouter } from "next/router"
 
 export default function Layout({ children }: any) {
+  const router = useRouter()
+  const isntContactPage = router.pathname != "/contact"
+
   return (
     <>
-      {children};
-      <Box sx={{ py: 8, textAlign: "center" }}>
-        <Typography>Vitória-ES, todos os direitos reservados, 2023.</Typography>
-        <Button variant="contained">Entre em contato</Button>
+      <Box sx={{ px: { xs: "auto", md: 3 } }}>
+        <NavBar />
+        {children}
+        {isntContactPage && <Footer />}
       </Box>
     </>
-  );
+  )
 }
