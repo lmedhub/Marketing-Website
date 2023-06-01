@@ -8,17 +8,7 @@ import LandingForm from "../src/components/LandingForm"
 import Product from "../src/components/Product"
 import TitleImage from "public/images/rebecca-peterson-hall-aN-zGYlxiCI-unsplash.jpg"
 
-type Products = {
-  id: number
-  title: string
-  price: string
-  description: string
-  image: string
-}
-
-type MainPageProductProps = {
-  data: Products[]
-}
+import { MainPageProductProps } from "../src/types/productTypes"
 
 export default function Home({ data }: MainPageProductProps) {
   const theme = useTheme()

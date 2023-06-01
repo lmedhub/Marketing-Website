@@ -1,14 +1,14 @@
-import React from "react"
-import mockProducts from "../mockdata"
 import { Grid, Box, Typography } from "@mui/material"
 import Link from "next/link"
 import Image from "next/image"
-import theme from "../theme"
 
-export default function Product(props) {
+import { Products } from "../types/productTypes"
+import { MainPageProductProps } from "../types/productTypes"
+
+export default function Product(props: MainPageProductProps) {
   return (
     <>
-      {props.data.map((product) => (
+      {props.data.map((product: Products) => (
         <Grid item key={product.id} xs={12} sm={4}>
           <Box
             sx={{
