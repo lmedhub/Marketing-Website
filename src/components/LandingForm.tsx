@@ -27,7 +27,7 @@ const ContactForm = () => {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <TextField
-            label="Name"
+            label="Nome"
             variant="outlined"
             {...register("name")}
             error={!!errors.name}
@@ -37,7 +37,7 @@ const ContactForm = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            label="Phone"
+            label="Telefone"
             variant="outlined"
             {...register("phone")}
             error={!!errors.phone}
@@ -58,7 +58,7 @@ const ContactForm = () => {
         </Grid>
         <Grid item xs={12}>
           <Button type="submit" variant="contained" color="primary">
-            Submit
+            Enviar!
           </Button>
         </Grid>
       </Grid>

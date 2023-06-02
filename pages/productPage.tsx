@@ -7,6 +7,7 @@ import ProductImage from "/public/images/hanna-balan-zQwuQ59-xnI-unsplash.jpg"
 type ProductDetails = {
   id: number
   details: string
+  image: string
 }
 
 type ProductPageProps = {
@@ -24,22 +25,24 @@ export default function ProductPage({ data }: ProductPageProps) {
       <Card sx={{ mt: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                width: "100%",
-                position: "relative",
-                boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                paddingBottom: "100%",
-              }}
-            >
-              <Image
-                src={ProductImage}
-                alt="product-image"
-                fill
-                objectFit="cover"
-                objectPosition="center"
-              />
-            </Box>
+            {product && (
+              <Box
+                sx={{
+                  width: "100%",
+                  position: "relative",
+                  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                  paddingBottom: "100%",
+                }}
+              >
+                <Image
+                  src={product.image}
+                  alt="product-image"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </Box>
+            )}
           </Grid>
 
           <Grid item xs={12} md={6}>

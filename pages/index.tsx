@@ -14,63 +14,65 @@ export default function Home({ data }: MainPageProductProps) {
   const theme = useTheme()
 
   return (
-    <Box>
+    <>
       <Head>
         <title>Aroma&Vela</title>
       </Head>
 
-      <Box
-        sx={{
-          height: "40vh",
-          position: "relative",
-          overflow: "hidden",
-          boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-        }}
-      >
-        <Image
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          src={TitleImage}
-          alt="title image"
-        />
+      <Box>
         <Box
           sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-            textAlign: "center",
-            fontSize: {
-              xs: "1.5rem",
-              sm: "2rem",
-              md: "2.5rem",
-              lg: "3rem",
-            },
-            fontWeight: "bold",
+            height: "40vh",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
           }}
         >
-          Aroma&Vela
+          <Image
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            src={TitleImage}
+            alt="title image"
+          />
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
+              textAlign: "center",
+              fontSize: {
+                xs: "1.5rem",
+                sm: "2rem",
+                md: "2.5rem",
+                lg: "3rem",
+              },
+              fontWeight: "bold",
+            }}
+          >
+            Aroma&Vela
+          </Box>
         </Box>
-      </Box>
 
-      <Container
-        sx={{
-          py: 8,
-          textAlign: "center",
-        }}
-      >
-        <LandingForm />
-      </Container>
-      <Grid container spacing={[5, 15]}>
-        <Product data={data} />
-      </Grid>
-    </Box>
+        <Container
+          sx={{
+            py: 8,
+            textAlign: "center",
+          }}
+        >
+          <LandingForm />
+        </Container>
+        <Grid container spacing={[5, 15]}>
+          <Product data={data} />
+        </Grid>
+      </Box>
+    </>
   )
 }
 

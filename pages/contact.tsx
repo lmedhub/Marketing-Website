@@ -34,7 +34,7 @@ function ContactForm() {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <TextField
-            label="Name"
+            label="Nome"
             variant="outlined"
             {...register("name")}
             error={!!errors.name}
@@ -44,7 +44,7 @@ function ContactForm() {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            label="Phone"
+            label="Telefone"
             variant="outlined"
             {...register("phone")}
             error={!!errors.phone}
@@ -55,7 +55,7 @@ function ContactForm() {
 
         <Grid item xs={12}>
           <TextField
-            label="Message"
+            label="Messagem"
             variant="outlined"
             {...register("msg")}
             error={!!errors.msg}
@@ -78,7 +78,7 @@ function ContactForm() {
 
 export default function LandingForm() {
   return (
-    <Container sx={{ textAlign: "center" }}>
+    <Container sx={{ textAlign: "center", py: 2 }}>
       <Typography variant="h2">Entre em contato</Typography>
       <ContactForm />
     </Container>
