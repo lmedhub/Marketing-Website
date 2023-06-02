@@ -99,11 +99,6 @@ function ResponsiveAppBar() {
               <MenuItem>
                 <Link href="/">Home</Link>
               </MenuItem>
-              <MenuItem>
-                <Link href="/">
-                  <Button variant="contained">Logout</Button>
-                </Link>
-              </MenuItem>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
